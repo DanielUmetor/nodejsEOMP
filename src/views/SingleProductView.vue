@@ -16,7 +16,7 @@
             <td>{{ product.Category }}</td>
           </tr>
         </table>
-        <button class="btn btn-success">Add to Cart</button>
+        <button class="btn btn-primary" @click="$router.push({ name: 'products' })">Back to Products</button>
       </div>
     </div>
   </div>
