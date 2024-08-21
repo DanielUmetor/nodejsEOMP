@@ -27,7 +27,7 @@ class Products {
             const strQry = `
             SELECT prodID, prodName, prodDescription, quantity, amount, Category, prodURL
             FROM Products
-            ORDER BY productID DESC
+            ORDER BY prodID DESC
             LIMIT 5;
             `
             db.query(strQry, (err, results) => {
@@ -50,7 +50,7 @@ class Products {
             const strQry = `
             SELECT prodID, prodName,prodDescription, quantity, amount, Category, prodURL
             FROM Products
-            WHERE productID = ${req.params.id};
+            WHERE prodID = ${req.params.id};
             `
             db.query(strQry, (err, result) => { 
                 if (err) throw new Error('Unable to retrieve a product')
