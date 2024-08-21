@@ -20,3 +20,29 @@ th, td {
 th {
     font-weight: bold;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center; /* Add this line */
+}
+th {
+    background-color: black;
+    color: #fff;
+}
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.table-header {
+    background-color: #333;
+    color: #fff;
+}
