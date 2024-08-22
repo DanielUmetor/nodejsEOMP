@@ -146,7 +146,7 @@ class Users {
                     if (isValidPass) {
                         const token = createToken({
                             emailAdd,
-                            pwd
+                            userPass
                         })
                         res.json({
                             status: res.statusCode,
@@ -172,4 +172,3 @@ class Users {
 export {
     Users
 }
-
