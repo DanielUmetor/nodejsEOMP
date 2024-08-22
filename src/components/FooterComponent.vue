@@ -51,7 +51,7 @@
     }
   }
   </script>
-  <style scoped>
+  <style >
   .footer {
       background-color: #000000;
       color: #fffeb6;

@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
@@ -64,8 +66,8 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products
-    },
+    return this.$store.state.products.products;
+  },
     filteredProducts() {
       if (!this.products) return []
       return this.products.filter(product => {
@@ -99,7 +101,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('fetchProducts')
+    this.$store.dispatch('products/fetchProducts')
   },
   methods: {
     searchProducts() {

@@ -41,7 +41,7 @@
 </script>
    
 <style scoped>
-/* .navbar {
+.navbar {
   position: absolute;
   background-color: transparent;
   padding: 1rem;
@@ -49,7 +49,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: bolder;
-} */
+}
 .navbar-brand {
     margin-right: 800px; 
  }
