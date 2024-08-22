@@ -27,7 +27,10 @@ app.use(
     express.urlencoded({
         extended: true
     }),
-    cors()
+    cors({
+        origin: '*',
+        credentials:true
+    })
 )
 
 app.get('^/$|/nodeEOMP', (req, res) => {
