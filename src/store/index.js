@@ -29,10 +29,12 @@ export default createStore({
     async addProduct({ commit, state }, info) {
       const { data } = await axios.post('https://nodejseomp-9bv2.onrender.com/products/addProduct', info)
       commit('setProducts', [...state.products, data.result])
+      location.reload();
     },
     async updateProduct({ commit }, product) {
       const { data } = await axios.put(`https://nodejseomp-9bv2.onrender.com/products/${product._id}`, product)
       commit('setProduct', data.result)
+      location.reload();
     },
     async deleteProduct({ commit }, id) {
       await axios.delete(`https://nodejseomp-9bv2.onrender.com/products/${id}`)
