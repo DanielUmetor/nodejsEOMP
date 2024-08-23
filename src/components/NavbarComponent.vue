@@ -1,34 +1,34 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light">
-       <div class="container">
-         <a class="navbar-brand" href="../views/HomeView.vue">
-           <img id="logo" src="" alt="Logo" width="190" height="190">
-         </a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav mr-auto">
-             <li class="nav-item" :class="{ active: $route.path === '/' }">
-               <RouterLink class="nav-link" to="/">Home</RouterLink>
-             </li>
-             <li class="nav-item" :class="{ active: $route.path === '/about' }">
-               <RouterLink class="nav-link" to="/about">About</RouterLink>
-             </li>
-             <li class="nav-item" :class="{ active: $route.path === '/products' }">
-               <RouterLink class="nav-link" to="/products">Products</RouterLink>
-             </li>
-             <li class="nav-item" :class="{ active: $route.path === '/admin' }">
-               <RouterLink class="nav-link" to="/admin">Admin</RouterLink>
-             </li>
-             <li class="nav-item" :class="{ active: $route.path === '/contact' }">
-               <RouterLink class="nav-link" to="/contact">Contacts</RouterLink>
-             </li>
-           </ul>
-         </div>
-       </div>
-     </nav>
-   </template>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img id="logo" src="" alt="Logo" width="190" height="190">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" :class="{ active: $route.path === '/' }">
+            <router-link class="nav-link" to="/">Home</router-link>
+          </li>
+          <li class="nav-item" :class="{ active: $route.path === '/about' }">
+            <router-link class="nav-link" to="/about">About</router-link>
+          </li>
+          <li class="nav-item" :class="{ active: $route.path === '/products' }">
+            <router-link class="nav-link" to="/products">Products</router-link>
+          </li>
+          <li class="nav-item" :class="{ active: $route.path === '/admin' }">
+            <router-link class="nav-link" to="/admin">Admin</router-link>
+          </li>
+          <li class="nav-item" :class="{ active: $route.path === '/contact' }">
+            <router-link class="nav-link" to="/contact">Contacts</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
    
    <script>
    export default {
@@ -43,7 +43,8 @@
 <style scoped>
 .navbar {
   position: absolute;
-  background-color: transparent;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
