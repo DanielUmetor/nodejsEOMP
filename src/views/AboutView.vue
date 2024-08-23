@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-=======
+
     <div class="about-container">
       <p class="para">Welcome to Majestic Scent, a family-owned and operated fragrance company dedicated to delivering the finest aromas and the most luxurious scents. For over a decade, we've been handcrafting the highest quality fragrances using only natural, responsibly-sourced ingredients.
 Our passion for fragrance goes beyond just creating beautiful scents; it's about capturing the essence of nature's beauty and sharing it with the world. We believe that every scent has the power to transport you to a different time and place, evoking emotions and memories that last a lifetime.
