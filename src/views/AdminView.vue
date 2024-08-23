@@ -1,77 +1,244 @@
 <template>
-    <div>
-      <h1>Admin View</h1>
-      <h2>Products</h2>
-      <ul>
-        <li v-for="product in products" :key="product._id">
-          {{ product.name }} ({{ product.price }})
-          <button @click="editProduct(product)">Edit</button>
-          <button @click="deleteProduct(product._id)">Delete</button>
-        </li>
-      </ul>
-      <h2>Add New Product</h2>
-      <form @submit.prevent="addProduct">
-        <label for="name">Name:</label>
-        <input type="text" id="name" v-model="newProduct.name" />
-        <br />
-        <label for="price">Price:</label>
-        <input type="number" id="price" v-model="newProduct.price" />
-        <br />
-        <button type="submit">Add Product</button>
-      </form>
-      <h2>Edit Product</h2>
-      <form @submit.prevent="updateProduct">
-        <label for="name">Name:</label>
-        <input type="text" id="name" v-model="editedProduct.name" />
-        <br />
-        <label for="price">Price:</label>
-        <input type="number" id="price" v-model="editedProduct.price" />
-        <br />
-        <button type="submit">Update Product</button>
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        newProduct: {
-          name: '',
-          price: 0
-        },
-        editedProduct: {
-          name: '',
-          price: 0
-        }
-      }
+  <div class="admin-page">
+    <h1>Admin Page</h1>
+
+    <h2>PRODUCTS TABLE</h2>
+
+    <button class="btn btn-primary" @click="$refs.addProductModal.show()">Add Product</button>
+
+    <table class="product-table" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody v-if="products.length > 0">
+        <tr v-for="product in products" :key="product.prodID">
+          <td>{{ product.prodID }}</td>
+          <td>
+            <div class="product-image-wrapper">
+              <img :src="product.prodURL" alt="Product Image" />
+            </div>
+          </td>
+          <td>{{ product.prodName }}</td>
+          <td>R{{ product.amount }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.Category }}</td>
+          <td>{{ product.prodDescription }}</td>
+          <td>
+            <button class="btn btn-edit" @click="editProduct(product)">Edit</button>
+            <button class="btn btn-delete" @click="deleteProduct(product.prodID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table> 
+
+    <!-- Add Product Modal -->
+    <AddProductModal ref="addProductModal" @add-product="addProduct" @close="showAddModal = false" />
+
+    <!-- Edit Product Modal -->
+     <EditProductModal ref="editProductModal" :edited-product="editedProduct" @save-edited-product="saveEditedProduct" />
+
+     <br>
+
+    <h2>USERS TABLE</h2>
+
+    <button class="btn btn-primary" @click="$refs.addUserModal.show()">Add User</button>
+
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>User Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Role</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Profile</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody v-if="users.length > 0">
+        <tr v-for="user in users" :key="user.userID">
+          <td>{{ user.userID }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.userAge }}</td>
+          <td>{{ user.Gender }}</td>
+          <td>{{ user.userRole }}</td>
+          <td>{{ user.emailAdd }}</td>
+          <td>{{ user.userPass }}</td>
+          <td>{{ user.userProfile }}</td>
+          <td>
+            <button class="btn btn-edit" @click="editUser(user)">Edit</button>
+            <button class="btn btn-delete" @click="deleteUser( user.userID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add User Modal -->
+    <AddUserModal ref="addUserModal" @add-user="addUser" @close="showAddModal = false" />
+  </div>
+</template>
+
+<script>
+import AddProductModal from '../components/AddProductModalComponent.vue'
+import EditProductModal from '../components/EditProductModelComponent.vue'
+import AddUserModal from '../components/AddUserModalComponent.vue'
+import EditUserModel from '../components/EditUserModelComponent.vue';
+
+
+export default {
+  components: { AddProductModal, EditProductModal, AddUserModal, EditUserModel },
+  computed: {
+    products() {
+      return this.$store.state.products.products
     },
-    computed: {
-      products() {
-        return this.$store.state.products
-      }
-    },
-    methods: {
-      async addProduct() {
-        await this.$store.dispatch('addProduct', this.newProduct)
-        this.newProduct = {
-          name: '',
-          price: 0
-        }
-      },
-      async editProduct(product) {
-        this.editedProduct = { ...product }
-      },
-      async updateProduct() {
-        await this.$store.dispatch('updateProduct', this.editedProduct)
-        this.editedProduct = {
-          name: '',
-          price: 0
-        }
-      },
-      async deleteProduct(id) {
-        await this.$store.dispatch('deleteProduct', id)
-      }
+    users() {
+      return this.$store.state.users.users
     }
+  },
+  mounted() {
+    this.$store.dispatch('products/fetchProducts')
+    this.$store.dispatch('users/fetchUsers')
+  },
+  data() {
+    return {
+      editedProduct: {},
+      showAddModal: false,
+      editedUser: {}
+    }
+  },
+  methods: {
+    editProduct(product) {
+      this.editedProduct = { ...product }
+      const modal = new bootstrap.Modal(document.getElementById('editProductModal'))
+      modal.show()
+    },
+    saveEditedProduct() {
+      this.$store.dispatch('products/updateProduct', this.editedProduct);
+      const modal = bootstrap.Modal.getInstance(document.getElementById('editProductModal'));
+      modal.hide();
+    },
+    deleteProduct(id) {
+      this.$store.dispatch('products/deleteProduct', id)
+    },
+    addProduct(newProduct) {
+      this.$store.dispatch('products/addProduct', newProduct)
+    },
+    editUser(user) {
+      this.editedUser = { ...user }
+      const modal = new bootstrap.Modal(document.getElementById('editUserModal'))
+      modal.show()
+    },
+    saveEditedUser() {
+      this.$store.dispatch('updateUser', this.editedUser);
+      const modal = bootstrap.Modal.getInstance(document.getElementById('editUserModal'));
+      modal.hide();
+    },
+    deleteUser(userID) {
+  if (!userID) {
+    console.error('User ID is required');
+    return;
   }
-  </script>
+  this.$store.dispatch('users/deleteUser', userID);
+},
+    addUser() {
+    this.$store.dispatch('users/registerUser', this.newUser);
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addUserModal'));
+    modal.hide();
+  }
+  }
+}
+</script>
+
+<style scoped>
+.admin-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th, .product-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: #f0f0f0;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f0f0f0;
+}
+
+.product-image-wrapper {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.btn-delete {
+  background-color: #FF0000;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #337AB7;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+</style>
