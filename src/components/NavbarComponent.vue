@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img id="logo" src="" alt="Logo" width="190" height="190">
+        <img id="logo" src="https://danielumetor.github.io/allimages/images/pixlr-image-generator-8e877494-e7f0-4e7e-9a1c-a7f89b33b49f.png" alt="Logo" width="60" height="60">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

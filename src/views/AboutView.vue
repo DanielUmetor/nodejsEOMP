@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="team-member">
-          <img src="team-member-2.jpg" alt="Team Member 2">
+          <img src="https://danielumetor.github.io/allimages/20240422_092918.jpg" alt="Team Member 2">
           <div class="team-info">
             <h3>Daniel Umetor</h3>
             <p>Co-Founder & CMO</p>
