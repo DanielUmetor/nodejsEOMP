@@ -50,6 +50,7 @@ Our fragrances are not just for special occasions; they're for every day, for ev
 
     </div>
   </div>
+  </div>
 </template>
 
 <style>
