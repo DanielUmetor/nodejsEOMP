@@ -15,7 +15,7 @@ fragrances are expertly crafted using only the highest quality ingredients. <br>
     <button class="bt1" @click="products">Explore More</button>
 
     <div class="bb">
-      <h2 class="best">TOP BEST SELLERS:</h2>
+      <h2 class="best">BEST SELLERS:</h2>
       <div class="container">
   <div id="row" class="row">
     <div class="col">
