@@ -130,7 +130,7 @@ export default {
   .card {
   border: none;
   border-radius: 10px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 110px 20px; 
   width: 380px;  
   background: transparent !important;
@@ -194,9 +194,9 @@ export default {
     border-top: 1px solid #ddd;
   }
   .col-md-4 {
-    margin-left: 220px; 
+    margin-left: 190px; 
   padding: 20px; 
-  float: right; 
+  /* float: right;  */
 }
 </style>
 
