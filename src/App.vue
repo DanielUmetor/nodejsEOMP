@@ -1,5 +1,5 @@
 <template>
-  <div :style="{backgroundColor:$route.path=='/about'?'none':'#fffeb6'}">
+  <div :style="{backgroundColor:$route.path=='#fffeb6'}">
     <NavbarComponents v-if="!loading" />
     <router-view  />
     <FooterComponent v-if="!loading" />
