@@ -56,6 +56,7 @@ export default createStore({
         }
       }
     },
+
     users: {
       namespaced: true,
       state: {
