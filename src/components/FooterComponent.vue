@@ -19,11 +19,11 @@
             <div class="col-md-4">
               <h5>Shop:</h5>
               <ul>
-                <li><a href="../views/AboutView.vue">About</a></li>
-                <li><a href="../views/ProductsView.vue">Products</a></li>
-                <li><a href="../views/AdminView.vue">Admin</a></li>
-                <li><a href="../views/ContactView.vue">Contact</a></li>
-              </ul>
+  <li><router-link to="/about">About</router-link></li>
+  <li><router-link to="/products">Products</router-link></li>
+  <li><router-link to="/admin">Admin</router-link></li>
+  <li><router-link to="/contact">Contact</router-link></li>
+</ul>
             </div>
             <div class="col-md-4">
             <h5>Accepted card payments:</h5>
@@ -51,7 +51,7 @@
     }
   }
   </script>
-  <style scoped>
+  <style >
   .footer {
       background-color: #000000;
       color: #fffeb6;
