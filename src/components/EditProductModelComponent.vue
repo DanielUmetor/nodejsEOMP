@@ -35,8 +35,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" @click="saveEditedProduct">Save changes</button>
+            <button type="button" class="btn8" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn8" @click="saveEditedProduct">Save changes</button>
           </div>
         </div>
       </div>
@@ -58,6 +58,13 @@
   }
   </script>
   
-  <style scoped>
-  /* Add styles here if needed */
-  </style>
+
+ <style scoped>
+.btn8{
+  background-color: rgb(129, 92, 47);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+</style>

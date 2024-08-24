@@ -39,8 +39,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" @click="addProduct(newUser)">Add Product</button>
+            <button type="button" class="btn8" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn8" @click="addProduct(newUser)">Add Product</button>
           </div>
         </div>
       </div>
@@ -76,7 +76,14 @@ export default {
   </script>
   
   <style scoped>
-  /* Add styles here if needed */
+  .btn8{
+  background-color: rgb(129, 92, 47);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
   </style>
  
  

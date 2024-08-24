@@ -62,6 +62,16 @@ export default {
 }
 </script>
 <style>
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  z-index: 1000; 
+}
 .home {
   display: flex;
   flex-wrap: wrap;
@@ -74,6 +84,7 @@ export default {
   flex-basis: 60%;
   padding: 20px;
   margin-top: 160px;
+  animation: slideInFromLeft 1s forwards;
 }
 
 .right-column {
@@ -81,6 +92,7 @@ export default {
   padding: 20px;
   text-align: center;
   margin-top: 120px;
+  animation: slideInFromRight 1s forwards;
 }
 
 .right-column img {
@@ -89,6 +101,27 @@ export default {
   object-fit: cover;
   border-radius: 10px;
   margin-top: 50px;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .slogan{
@@ -116,6 +149,7 @@ export default {
   border-radius: 15px;
   width: 150px;
   height: 40px;
+  animation: slideInFromLeft 1s forwards;
 }
 
 div.home{
@@ -196,6 +230,7 @@ div.home{
   bottom: 140px; 
   height: 100%;
   margin-bottom: -140px;
+  z-index: 500;
 }
 #pef{
   display: inline-block;
@@ -215,7 +250,22 @@ div.home{
   position: relative;
   bottom: 120px;
 }
+.bt1, .bt2 {
+ 
+  animation: pulse 2s infinite;
+}
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 @media only screen and (max-width: 300px) {
   .home {

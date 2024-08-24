@@ -62,7 +62,6 @@
           <th>Gender</th>
           <th>Role</th>
           <th>Email</th>
-          <th>Password</th>
           <th>Profile</th>
           <th>Actions</th>
         </tr>
@@ -76,7 +75,6 @@
           <td>{{ user.Gender }}</td>
           <td>{{ user.userRole }}</td>
           <td>{{ user.emailAdd }}</td>
-          <td>{{ user.userPass }}</td>
           <td>{{ user.userProfile }}</td>
           <td>
             <button class="btn btn-edit" @click="editUser(user)">Edit</button>
@@ -88,6 +86,7 @@
 
     <!-- Add User Modal -->
     <AddUserModal ref="addUserModal" @add-user="addUser" @close="showAddModal = false" />
+    <EditUserModal :edited-user="editedUser" @save-edited-user="saveEditedUser" />
   </div>
 </template>
 
@@ -95,11 +94,11 @@
 import AddProductModal from '../components/AddProductModalComponent.vue'
 import EditProductModal from '../components/EditProductModelComponent.vue'
 import AddUserModal from '../components/AddUserModalComponent.vue'
-import EditUserModel from '../components/EditUserModelComponent.vue';
+import EditUserModal from '../components/EditUserModalComponent.vue';
 
 
 export default {
-  components: { AddProductModal, EditProductModal, AddUserModal, EditUserModel },
+  components: { AddProductModal, EditProductModal, AddUserModal, EditUserModal  },
   computed: {
     products() {
       return this.$store.state.products.products
@@ -116,7 +115,7 @@ export default {
     return {
       editedProduct: {},
       showAddModal: false,
-      editedUser: {}
+      editedUser: {},
     }
   },
   methods: {
@@ -140,36 +139,35 @@ export default {
       this.editedUser = { ...user }
       const modal = new bootstrap.Modal(document.getElementById('editUserModal'))
       modal.show()
-    },
-    saveEditedUser() {
-      this.$store.dispatch('updateUser', this.editedUser);
-      const modal = bootstrap.Modal.getInstance(document.getElementById('editUserModal'));
-      modal.hide();
-    },
+},
+saveEditedUser() {
+  this.$store.dispatch('users/updateUser', this.editedUser);
+    const modal = bootstrap.Modal.getInstance(document.getElementById('editUserModal'));
+    modal.hide();
+},
     deleteUser(userID) {
-  if (!userID) {
-    console.error('User ID is required');
-    return;
-  }
-  this.$store.dispatch('users/deleteUser', userID);
+    this.$store.dispatch('users/deleteUser', userID);
 },
     addUser() {
     this.$store.dispatch('users/registerUser', this.newUser);
     const modal = bootstrap.Modal.getInstance(document.getElementById('addUserModal'));
     modal.hide();
   }
+  
   }
 }
 </script>
 
 <style scoped>
 .admin-page {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
 }
 
 .product-table {
@@ -240,5 +238,42 @@ export default {
 
 .btn:hover {
   opacity: 0.8;
+}
+.product-table, .user-table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+.product-table th, .product-table td, .user-table th, .user-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  min-width: 150px;
+}
+
+.product-table th, .user-table th {
+  background-color: #f0f0f0;
+}
+
+@media only screen and (max-width: 300px) {
+  .product-table, .user-table {
+    font-size: 12px;
+  }
+  .product-table th, .product-table td, .user-table th, .user-table td {
+    padding: 5px;
+    min-width: 100px;
+  }
+.admin-page {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  height: auto;
+} 
 }
 </style>

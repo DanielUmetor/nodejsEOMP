@@ -38,21 +38,24 @@ export default createStore({
         async fetchProduct({ commit }, id) {
           const { data } = await axios.get(`https://nodejseomp-9bv2.onrender.com/products/${id}`)
           commit('setProduct', data.result)
+          
         },
         async addProduct({ commit, state }, product) {
           console.log(product);
 
           const { data } = await axios.post('https://nodejseomp-9bv2.onrender.com/products/add', product)
           console.log(data);
-          // commit('setProducts', [...state.products, data.result])
+          location.reload();
         },
         async updateProduct({ commit }, product) {
           const { data } = await axios.patch(`https://nodejseomp-9bv2.onrender.com/products/${product.prodID}`, product)
           commit('updateProduct', product)
+          location.reload();
         },
         async deleteProduct({ commit, state }, id) {
           await axios.delete(`https://nodejseomp-9bv2.onrender.com/products/${id}`)
           commit('setProducts', state.products.filter(product => product._id !== id))
+          location.reload();
         }
       }
     },
@@ -80,6 +83,12 @@ export default createStore({
         setToken(state, token) {
           state.token = token
         },
+        updateUser(state, user) {
+          const index = state.users.findIndex((u) => u.userID === user.UserID)
+          if (index !== -1) {
+            state.users.splice(index, 1, user)
+          }
+        }
       },
       actions: {
         async fetchUsers({ commit }) {
@@ -89,30 +98,27 @@ export default createStore({
         async fetchUser({ commit }, id) {
           const response = await axios.get(`https://nodejseomp-9bv2.onrender.com/users/${id}`)
           commit('setUser', response.data)
+          location.reload();
         },
         async registerUser({ commit, state }, data) {
           const response = await axios.post('https://nodejseomp-9bv2.onrender.com/users/register', data)
-          // commit('setToken', response.data.token)
-          // commit('setUser', response.data.user)
-          // if (Array.isArray(state.users)) {
-          //   commit('setUsers', [...state.users, response.data.user])
-          // } else {
-          //   commit('setUsers', [response.data.user])
-          // }
+          location.reload();
         },
-        async updateUser({ commit }, data) {
-          const response = await axios.put(`https://nodejseomp-9bv2.onrender.com/users/${data.userID}`, data)
-          commit('setUser', response.data)
+        async updateUser({ commit }, user) {
+          const {data} = await axios.patch(`https://nodejseomp-9bv2.onrender.com/users/${user.userID}`, user)
+          console.log(data);
+          commit('updateUser', user)
+          location.reload();
         },
-          async deleteUser({ commit, state }, id) {
-            console.log(id);
-            // await axios.delete(`https://nodejseomp-9bv2.onrender.com/users/${id}`);
-            // commit('setUsers', state.users.filter(user => user.userID !== id));
-          },
+        async deleteUser({ commit, state }, id) {
+          await axios.delete(`https://nodejseomp-9bv2.onrender.com/users/${id}`);
+          commit('setUsers', state.users.filter(user => user.userID !== id));
+        },
         async login({ commit }, data) {
           const response = await axios.post('https://nodejseomp-9bv2.onrender.com/users', data)
           commit('setToken', response.data.token)
           commit('setUser', response.data.user)
+          location.reload();
         }
       }
     }

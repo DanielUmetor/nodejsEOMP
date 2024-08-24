@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img id="logo" src="" alt="Logo" width="190" height="190">
+        <img id="logo" src="MAJESTIC SCENT" alt="Logo" width="190" height="190">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,8 +41,8 @@
 </script>
    
 <style scoped>
-.navbar {
-  position: absolute;
+  .navbar {
+  position: fixed; 
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
   padding: 1rem;
@@ -50,6 +50,8 @@
   justify-content: space-between;
   align-items: center;
   font-weight: bolder;
+  box-shadow: none;
+  width: 1500px;
 }
 .navbar-brand {
     margin-right: 800px; 
@@ -71,6 +73,39 @@
 .nav-link:hover {
   background-color: black; 
   color: #fffeb6; 
+}
+@media (max-width: 300px) {
+  .navbar-toggler {
+  margin-left: 0;
+  margin-top: 10px;
+  position: fixed;
+}
+  .navbar-nav {
+    flex-direction: column; 
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
+    align-items: center;
+    width: 300px !important;
+  }
+  .navbar-brand {
+    margin-right: 0;
+  }
+  .nav-item {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 10px;
+  }
+  .nav-link {
+    text-align: center;
+  }
+  .navbar-toggler {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .container {
+    padding: 0;
+  }
+
 }
 
 </style>

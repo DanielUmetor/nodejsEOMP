@@ -68,17 +68,37 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+.about-background:hover {
+  background-color: #fff; 
+  transition: background-color 0.5s ease-in-out; 
 }
 
 .about-paragraph {
   font-size: 18px;
-  color: #fff; 
+  color: #fff;
   padding: 20px;
+  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out; 
+}
+
+.about-paragraph:hover {
+  transform: scale(1.1); 
+  background-color: #fff; 
+  color: #6f5030; 
+  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 .about-paragraph span {
     text-decoration: underline;
     text-underline-offset: 2px; 
+    transition: transform 0.5s ease-in-out;
   }
+  .about-paragraph:hover span {
+  transform: scale(1.1);
+  color: #6f5030; 
+  transition: transform 0.5s ease-in-out; 
+}
+
 
 
 .our-team {
@@ -93,7 +113,8 @@
   flex-direction: row;
   align-items: center;
   margin: 20px;
-  background-color: #f7f7f7;
+  background-color: #6f5030;
+  color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
