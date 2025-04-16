@@ -5,7 +5,7 @@
 
       
 
-        <img id="logo" src="https://danielumetor.github.io/allimages/images/pixlr-image-generator-8e877494-e7f0-4e7e-9a1c-a7f89b33b49f.png" alt="Logo" width="60" height="60">
+        <img id="logo" src="https://nikilitha26.github.io/nodejsImages/Majestic-removebg-preview.png" alt="Logo" width="120" height="80">
 
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,8 +47,10 @@
 <style scoped>
   .navbar {
   position: fixed; 
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
+  background: black;
+  /* right: 50px; */
+  color: #ad8330;
+  /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%); */
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -58,26 +60,52 @@
   width: 1500px;
 }
 .navbar-brand {
-    margin-right: 800px; 
+    margin-right: 790px; 
  }
 
  .nav-link {
     font-size: 18px;
     font-weight: bold;
-    color: black;
+    color: #ad8330;
+    position: relative;
+    bottom: 20px;
     }
 .nav-item {
    margin-right: 20px; 
    margin-top: 20px; 
  }
-.nav-item.active .nav-link {
+ .nav-item.active .nav-link {
+  background-color: black;
+  color: #fffeb6;
+  font-size: 20px;            
+  /* text-decoration: underline !important;  */
+  text-underline-offset: 4px; 
+}
+
+.nav-item.active .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%; 
+  height: 2px;
+  background-color: #fffeb6;
+  border-radius: 2px;
+}
+
+.nav-link:hover{
   background-color: black; 
   color: #fffeb6; 
+  width: 40%;
+  font-size: 20px; 
 }
-.nav-link:hover {
-  background-color: black; 
-  color: #fffeb6; 
+#logo{
+  position: relative;
+  bottom: 10px;
+  right: 60px;
 }
+
 @media (max-width: 300px) {
   .navbar-toggler {
   margin-left: 0;

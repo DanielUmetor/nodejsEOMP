@@ -12,7 +12,7 @@ fragrances are expertly crafted using only the highest quality ingredients. <br>
       <img src="https://nikilitha26.github.io/nodejsImages/2_bottles-removebg-preview.png" alt="Image">
     </div>
 
-    <button class="bt1" @click="products">Explore More</button>
+    <button class="bt1" @click="$router.push('/products')">Explore More</button>
 
     <div class="bb">
       <h2 class="best">BEST SELLERS:</h2>
@@ -76,8 +76,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
+  background:black;
+  /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%); */
 }
 
 .left-column {
@@ -129,27 +129,36 @@ export default {
   font-weight: 700;
   font-style: normal;
   font-size: 38px;
-  color: white;
+  color: #ad8330;
 }
 
 .welcome{
   font-family: "Cinzel", serif;
   font-size: 18px;
   font-weight: 500;
-  color: white;
+  color: #ad8330;
 }
 
-.bt1{
-  background-color:  rgb(111, 66, 25);
-  color: white;
-  position: relative;
-  bottom: 230px;
-  left: 400px;
-  border: none;
+.bt1 {
+  background-color: black;
+  color: #ad8330;
+  border: solid #ad8330;
   border-radius: 15px;
   width: 150px;
   height: 40px;
-  animation: slideInFromLeft 1s forwards;
+  margin-top: 20px;
+  z-index: 10;
+  position: relative;
+  animation: slideInFromLeft 1s forwards, pulse 2s infinite;
+  cursor: pointer;
+  bottom: 230px;
+left: 400px;
+}
+
+
+.bt1:hover{
+  background-color:  #ad8330;
+  color: black;
 }
 
 div.home{
@@ -239,7 +248,7 @@ div.home{
 }
 
 .bt2 {
-  background-color: rgb(111, 66, 25);
+  background-color: #ad8330;
   color: white;
   border: none;
   border-radius: 15px;
@@ -249,6 +258,7 @@ div.home{
   display: block;
   position: relative;
   bottom: 120px;
+  left: 10px;
 }
 .bt1, .bt2 {
  
