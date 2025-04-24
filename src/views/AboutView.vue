@@ -1,21 +1,28 @@
-
 <template>
   <div class="about">
-
     <nav> 
+      <!-- Navigation content if any -->
     </nav>
+
     <div class="about-container">
-      <div class="about-background">
+      <span class="about-us">ABOUT US</span>
+
+      <!-- Sparkle wrapper holds the paragraph and the four corner sparkles -->
+      <div class="sparkle-wrapper">
         <p class="about-paragraph">
-  <span>ABOUT US</span>
-  <br><br>
-  Welcome to Majestic Scent, a family-owned and operated fragrance company dedicated to delivering the finest aromas and the most luxurious scents. For over a decade, we've been handcrafting the highest quality fragrances using only natural, responsibly-sourced ingredients.
-  Our passion for fragrance goes beyond just creating beautiful scents; it's about capturing the essence of nature's beauty and sharing it with the world. We believe that every scent has the power to transport you to a different time and place, evoking emotions and memories that last a lifetime.
-  <br><br>
-  At Majestic Scent, we understand that fragrances are personal. That's why we take a personalized approach to every product we create. From the moment you step into our store or browse our website, you'll be greeted with a warm and welcoming atmosphere. Our knowledgeable and friendly staff are always on hand to help you find the perfect scent that speaks to your soul.
-  Our fragrances are not just for special occasions; they're for every day, for every mood, and for every moment.
-</p>
+          <br><br>
+          Welcome to Majestic Scent, a family-owned and operated fragrance company dedicated to delivering the finest aromas and the most luxurious scents. For over a decade, we've been handcrafting the highest quality fragrances using only natural, responsibly-sourced ingredients.
+          Our passion for fragrance goes beyond just creating beautiful scents; it's about capturing the essence of nature's beauty and sharing it with the world. We believe that every scent has the power to transport you to a different time and place, evoking emotions and memories that last a lifetime.
+          <br><br>
+          At Majestic Scent, we understand that fragrances are personal. That's why we take a personalized approach to every product we create. From the moment you step into our store or browse our website, you'll be greeted with a warm and welcoming atmosphere. Our knowledgeable and friendly staff are always on hand to help you find the perfect scent that speaks to your soul.
+          Our fragrances are not just for special occasions; they're for every day, for every mood, and for every moment.
+        </p>
+        <div class="sparkle sparkle-tl"></div>
+        <div class="sparkle sparkle-tr"></div>
+        <div class="sparkle sparkle-bl"></div>
+        <div class="sparkle sparkle-br"></div>
       </div>
+
       <br><br>
       <h2 class="our-team-title">OUR TEAM</h2>
 
@@ -29,6 +36,7 @@
               As a CEO, Nikilitha is deeply committed to ensuring that every aspect of the business meets the highest standards of excellence. This dedication extends to the company's online presence, where Nikilitha works tirelessly to ensure that the website accurately reflects the values and vision of Majestic Scent.</p>
           </div>
         </div>
+
         <div class="team-member">
           <img src="https://danielumetor.github.io/allimages/20240422_092918.jpg" alt="Team Member 2">
           <div class="team-info">
@@ -39,67 +47,135 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <style>
-
 .about {
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
-  height: 210vh;
+  background: black;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px; 
+  padding-top: 100px;
 }
 
 .about-container {
-  max-width: 800px; 
-  margin: 0 auto; 
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
+  position: relative;
+  bottom: 50px;
 }
 
-.about-background {
-  background-color: #6f5030; 
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-   transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+
+.about-us {
+  color: #ad8330;
+  font-size: 36px;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  display: block;
+  margin-bottom: 10px;
 }
-.about-background:hover {
-  background-color: #fff; 
-  transition: background-color 0.5s ease-in-out; 
+
+/* wrapper for paragraph + sparkles */
+.sparkle-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
 .about-paragraph {
   font-size: 18px;
-  color: #fff;
+  color: #ad8330;
   padding: 20px;
-  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out; 
+  font-family: "Cinzel", serif;
+  line-height: 1.8;
+  text-align: justify;
+  background: transparent;
+  position: relative;
 }
 
-.about-paragraph:hover {
-  transform: scale(1.1); 
-  background-color: #fff; 
-  color: #6f5030; 
-  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+/* base sparkle style */
+.sparkle {
+  filter:
+    brightness(0) invert(1)
+    sepia(1) saturate(6) hue-rotate(15deg) brightness(1.2) contrast(0.9);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/616/616494.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: sparkleAnim 2s infinite ease-in-out alternate;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 5px #fff7cc);
+  pointer-events: none;
 }
-.about-paragraph span {
-    text-decoration: underline;
-    text-underline-offset: 2px; 
-    transition: transform 0.5s ease-in-out;
+
+/* top-left */
+.sparkle-tl {
+  top: -20px;
+  left: -40px;
+}
+
+/* top-right */
+.sparkle-tr {
+  top: -20px;
+  right: -40px;
+  animation-delay: 0.5s;
+}
+
+/* bottom-left */
+.sparkle-bl {
+  bottom: 40px;
+  left: -50px;
+  animation-delay: 1s;
+}
+
+/* bottom-right */
+.sparkle-br {
+  bottom: 40px;
+  right: -50px;
+  animation-delay: 1.5s;
+}
+
+@keyframes sparkleAnim {
+  0% {
+    transform: scale(1) rotate(0deg);
   }
-  .about-paragraph:hover span {
-  transform: scale(1.1);
-  color: #6f5030; 
-  transition: transform 0.5s ease-in-out; 
+  50% {
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) rotate(-15deg);
+  }
 }
 
 
+.our-team-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ad8330;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.our-team-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: #ad8330;
+  border-radius: 10px;
+}
 
 .our-team {
   display: flex;
@@ -113,85 +189,78 @@
   flex-direction: row;
   align-items: center;
   margin: 20px;
-  background-color: #6f5030;
-  color: white;
+  background-color: #000; 
+  color: #ad8330;   
   padding: 20px;
+  border: 2px solid #ad8330; 
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(173, 131, 48, 0.5); 
 }
+
+.team-member:hover {
+  background-color: #1a1a1a;           
+  box-shadow: 0 0 15px rgba(173, 131, 48, 0.8);
+}
+
+/* .team-member {
+  background-color: #000;             
+  border: 2px solid #ad8330;           
+  color: #ad8330;                     
+  box-shadow: 0 0 10px rgba(173, 131, 48, 0.5); 
+} */
 
 .team-member img {
   width: 100px;
   height: 100px;
+  border: 2px solid #ad8330;
   border-radius: 50%;
   margin-right: 20px;
 }
 
 .team-info {
   flex: 1;
+  color: #ad8330;
+  text-align: justify;
 }
 
 .team-info h3 {
   margin-top: 0;
+  color: #ad8330;
 }
-.our-team-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-  }
 
-  .our-team-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 2px;
-    background-color: #333;
-    border-radius: 10px;
-  }
-  @media only screen and (max-width: 300px) {
+@media only screen and (max-width: 300px) {
   .about {
-    height: auto; 
-    padding-top: 20px; 
+    padding-top: 20px;
   }
   .about-container {
-    max-width: 90%; 
-    padding: 10px; 
-  }
-  .about-background {
-    padding: 10px; 
+    max-width: 90%;
+    padding: 10px;
   }
   .about-paragraph {
-    font-size: 14px; 
+    font-size: 14px;
     padding: 10px;
   }
   .our-team {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
   }
   .team-member {
-    flex-direction: column; 
-    align-items: center; 
-    margin: 10px; 
-    padding: 10px; 
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
   }
+  
   .team-member img {
-    width: 50px; 
+    width: 50px;
     height: 50px;
   }
   .team-info {
-    text-align: center; 
+    text-align: center;
   }
   .our-team-title {
-    font-size: 24px; 
-    margin-bottom: 10px; 
+    font-size: 24px;
+    margin-bottom: 10px;
   }
 }
-
 </style>
-
