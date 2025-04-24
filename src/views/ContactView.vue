@@ -1,44 +1,45 @@
-<template>
+<template> 
   <div class="contact">
     <div class="columns">
       <div class="icons-column">
         <div class="icon-item">
-          <img id="phone" src="https://nikilitha26.github.io/nodejsImages/images__1_-removebg-preview.png" alt="Phone">
-          <p id="phon">+27 72 321 8921</p>
+          <i class="fas fa-phone-alt"></i>
+          <p>+27 72 321 8921</p>
         </div>
         <div class="icon-item">
-          <img id="email" src="https://nikilitha26.github.io/nodejsImages/images__2_-removebg-preview.png" alt="Email">
-          <p id="emai">majecticscent@gmail.com</p>
+          <i class="fas fa-envelope"></i>
+          <p>majesticscent@gmail.com</p>
         </div>
         <div class="icon-item">
-          <img id="instagram" src="https://nikilitha26.github.io/nodejsImages/free-instagram-brown-outline-icon-22728-thumb-removebg-preview.png" alt="Instagram">
-          <p id="insta">majestic_scent_official</p>
+          <i class="fab fa-instagram"></i>
+          <p>majestic_scent_official</p>
         </div>
         <div class="icon-item">
-          <img id="facebook" src="https://nikilitha26.github.io/nodejsImages/images__3_-removebg-preview.png" alt="Facebook">
-          <p id="face">majestic_scent_official</p>
+          <i class="fab fa-facebook-f"></i>
+          <p>majestic_scent_official</p>
         </div>
         <div class="icon-item">
-          <img id="location" src="https://nikilitha26.github.io/nodejsImages/images__4_-removebg-preview.png" alt="Question">
-          <p id="loca">Cape Town, Western Cape, 7790</p>
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Cape Town, Western Cape, 7790</p>
         </div>
       </div>
+
       <div class="form-column">
-        <h2 id="get">Get in Touch</h2>
+        <h2>Get in Touch</h2>
         <form @submit.prevent="handleSubmit">
-          <label for="name">Name:</label>
-          <input type="text" id="name" v-model="formData.name" placeholder="Type your name...">
-          <span v-if="errors.name" class="error" style="color: red">{{ errors.name }}</span>
-          <br><br>
-          <label for="email">Email:</label>
-          <input type="email" id="emaili" v-model="formData.email" placeholder="Type your email...">
+          <label for="name">Name</label>
+          <input type="text" id="name" v-model="formData.name" placeholder="Type your name…">
+          <span v-if="errors.name" class="error">{{ errors.name }}</span>
+
+          <label for="emaili">Email</label>
+          <input type="email" id="emaili" v-model="formData.email" placeholder="Type your email…">
           <span v-if="errors.email" class="error">{{ errors.email }}</span>
-          <br><br>
-          <label for="message">Message:</label>
-          <textarea id="message" v-model="formData.message" placeholder="Type your message..."></textarea>
+
+          <label for="message">Message</label>
+          <textarea id="message" v-model="formData.message" placeholder="Type your message…"></textarea>
           <span v-if="errors.message" class="error">{{ errors.message }}</span>
-          <br><br>
-          <input type="submit" value="Send" id="send">
+
+          <button type="submit">Send</button>
         </form>
       </div>
     </div>
@@ -46,270 +47,161 @@
 </template>
 
 <script>
+import '@fortawesome/fontawesome-free/css/all.css';
+
 export default {
   data() {
     return {
-      formData: {
-        name: '',
-        email: '',
-        message: ''
-      },
+      formData: { name: '', email: '', message: '' },
       errors: {}
     }
   },
   methods: {
     handleSubmit() {
       if (this.validateForm()) {
-        const formData = new FormData();
-        formData.append('name', this.formData.name);
-        formData.append('email', this.formData.email);
-        formData.append('message', this.formData.message);
+        const fd = new FormData();
+        fd.append('name', this.formData.name);
+        fd.append('email', this.formData.email);
+        fd.append('message', this.formData.message);
 
         fetch('https://formspree.io/f/xkgwplyn', {
           method: 'POST',
-          body: formData
+          body: fd
         })
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => console.log(data))
-        .catch(error => console.error(error));
+        .catch(err => console.error(err));
       }
     },
     validateForm() {
-      const errors = {};
-      if (!this.formData.name) {
-        errors.name = 'Name is required';
-      }
-      if (!this.formData.email) {
-        errors.email = 'Email is required';
-      } else if (!this.validateEmail(this.formData.email)) {
-        errors.email = 'Invalid email address';
-      }
-      if (!this.formData.message) {
-        errors.message = 'Message is required';
-      }
-      this.errors = errors;
-      return Object.keys(errors).length === 0;
-    },
-    validateEmail(email) {
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      return emailRegex.test(email);
+      const errs = {};
+      if (!this.formData.name)    errs.name    = 'Name is required';
+      if (!this.formData.email)   errs.email   = 'Email is required';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email))
+                                 errs.email   = 'Invalid email';
+      if (!this.formData.message) errs.message = 'Message is required';
+      this.errors = errs;
+      return Object.keys(errs).length === 0;
     }
   }
 }
 </script>
 
-<style>
-.contact{
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%);
-  height: 110vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 100px; 
+<style scoped>
+.contact {
+  background: #000;
+  min-height: 100vh;
+  padding: 100px 0;
+  color: #ad8330;
 }
-.error {
-    color: red;
-  }
+
 .columns {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  margin-top: 90px;
+  flex-wrap: wrap;
+  margin-top: 70px;
 }
 
 .icons-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  margin-top: 40px;
+  align-items: flex-start;
+  gap: 40px; 
 }
 
 .icon-item {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 20px; 
+  margin: 15px 0;
 }
 
-.icons-column img {
-  width: 50px;
-  height: 50px;
+.icon-item i {
+  font-size: 2rem;
+  color: #ad8330;
+  margin-right: 12px;
 }
 
-.icons-column p {
-  color: #fff;
-  margin-left: 10px;
+.icon-item p {
+  font-size: 1.1rem;
+  color: #ad8330;
+  margin: 0;
 }
 
 .form-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .form-column h2 {
-  color: #fff;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ad8330;
 }
 
 .form-column label {
-  color: #6f5030;
-  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #ad8330;
 }
 
-.form-column input, .form-column textarea {
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #6f5030;
-  border-radius: 5px;
+.form-column input,
+.form-column textarea {
   width: 100%;
-  font-style: italic #6f5030;
-  color: #6f5030 !important;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #000;
+  border: 2px solid #ad8330;
+  border-radius: 5px;
+  color: #ad8330;
+  font-size: 1rem;
 }
 
-.form-column input[type="submit"] {
-  background-color: #6f5030;
-  color: #fff !important;
-  padding: 10px 20px;
+.form-column input::placeholder,
+.form-column textarea::placeholder {
+  color: #ad8330aa;
+}
+
+.form-column button {
+  margin-top: 20px;
+  background: #ad8330;
+  color: #000;
   border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.form-column input[type="submit"]:hover {
-  color: #6f5030;
-  background-color: #fff;
+.form-column button:hover {
+  background: #fff;
+  color: #ad8330;
 }
-.form-column input[type="submit"]:active {
-  animation: zoom-out 0.3s;
+.form-column form {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; 
 }
 
-@keyframes zoom-out {
-  0% {
-    transform: scale(1);
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+    align-items: center;
   }
-  100% {
-    transform: scale(0.8);
+  .icons-column {
+    align-items: center;
+    margin-bottom: 30px;
   }
 }
-#send{
-  background-color: #6f5030;
-  color: #fff !important;
-}
-#send:hover{
-  color: #6f5030 !important;
-  background-color: #fff;
-}
-#emaili{
-  margin-left: 0px;
-}
-#get{
-  color: #6f5030;
-}
-#phone{
-  position: relative;
-  right: 100px;
-}
-#phon{
-  position: relative;
-  right: 80px;
-  margin-top: 20px;
-}
-#email{
-  position: relative;
-  right: 66px;
-}
-#emai{
-  position: relative;
-  right: 43px;
-  margin-top: 14px;
-}
-#instagram{
-  position: relative;
-  right: 79px;
-}
-#insta{
-
-  position: relative;
-  right: 57px;
-  margin-top: 10px;
-}
-#facebook{
-  position: relative;
-  right: 80px;
-}
-#face{
-  position: relative;
-  right: 58px;
-}
-#location{
-  position: relative;
-  right: 50px;
-}
-#loca{
-  position: relative;
-  right: 25px;
-}
-@media only screen and (max-width: 300px) {
-    .contact {
-      height: auto; 
-      padding-top: 50px; 
-    }
-
-    .columns {
-      flex-direction: column; 
-      width: 100%; 
-      margin-top: 20px; 
-    }
-
-    .icons-column {
-      padding: 10px; 
-    }
-
-    .icon-item {
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 10px; 
-    }
-
-    .icons-column img {
-      width: 30px; 
-      height: 30px;
-    }
-
-    .icons-column p {
-      font-size: 14px;
-      margin-left: 5px; 
-    }
-
-    .form-column {
-      padding: 10px; 
-    }
-
-    .form-column h2 {
-      font-size: 18px; 
-      margin-bottom: 10px; 
-    }
-
-    .form-column label {
-      font-size: 14px; 
-      margin-bottom: 5px; 
-    }
-
-    .form-column input, .form-column textarea {
-      padding: 5px; 
-      margin-bottom: 10px; 
-    }
-
-    .form-column input[type="submit"] {
-      padding: 5px 10px; 
-    }
-  }
 </style>
