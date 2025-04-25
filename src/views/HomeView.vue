@@ -172,10 +172,10 @@ div.home{
 .card {
   margin: 20px;
   padding: 20px;
-  border: none !important;
-  background-color: #fff !important;
+  border: none;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 80px;
   display: inline-block;
   margin-right: 10px;
@@ -237,7 +237,7 @@ div.home{
   width: 100%;
   position: relative;
   bottom: 140px; 
-  height: 90vh;
+  height: 80vh;
   margin-bottom: -140px;
   z-index: 500;
 }
@@ -252,14 +252,20 @@ div.home{
   color: white;
   border: none;
   border-radius: 15px;
+  padding: 5px;
   width: 150px;
   height: 40px;
   margin: 20px auto;
   display: block;
   position: relative;
-  bottom: 140px;
+  bottom: 175px;
   left: 10px;
-  padding: 5px;
+}
+
+.bt2:hover{
+  color: #ad8330;
+  background-color: white;
+  border: #ad8330 solid 2px;
 }
 .bt1, .bt2 {
  

@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 .products {
   background: #000;
   min-height: 100vh;
