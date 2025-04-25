@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/css/all.css'
+import Swal from 'sweetalert2'
 
 export default {
   data() {
@@ -59,29 +60,56 @@ export default {
   methods: {
     handleSubmit() {
       if (this.validateForm()) {
-        const fd = new FormData();
-        fd.append('name', this.formData.name);
-        fd.append('email', this.formData.email);
-        fd.append('message', this.formData.message);
+        const fd = new FormData()
+        fd.append('name', this.formData.name)
+        fd.append('email', this.formData.email)
+        fd.append('message', this.formData.message)
 
         fetch('https://formspree.io/f/xkgwplyn', {
-          method: 'POST',
-          body: fd
-        })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.error(err));
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json'
+  },
+  body: fd
+})
+.then(res => {
+  if (!res.ok) throw new Error('Failed to send message');
+  return res.json();
+})
+.then(() => {
+  Swal.fire({
+    icon: 'success',
+    title: 'Message Sent!',
+    text: 'Thank you for getting in touch. We’ll get back to you soon.',
+    confirmButtonColor: '#ad8330',
+    background: '#000',
+    color: '#ad8330'
+  });
+
+  this.formData = { name: '', email: '', message: '' };
+  this.errors = {};
+})
+.catch(() => {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops!',
+    text: 'Something went wrong. Please try again later.',
+    confirmButtonColor: '#e74c3c'
+  });
+});
       }
     },
     validateForm() {
-      const errs = {};
-      if (!this.formData.name)    errs.name    = 'Name is required';
-      if (!this.formData.email)   errs.email   = 'Email is required';
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email))
-                                 errs.email   = 'Invalid email';
-      if (!this.formData.message) errs.message = 'Message is required';
-      this.errors = errs;
-      return Object.keys(errs).length === 0;
+      const errs = {}
+      if (!this.formData.name) errs.name = 'Name is required'
+      if (!this.formData.email) {
+        errs.email = 'Email is required'
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) {
+        errs.email = 'Invalid email'
+      }
+      if (!this.formData.message) errs.message = 'Message is required'
+      this.errors = errs
+      return Object.keys(errs).length === 0
     }
   }
 }
@@ -181,12 +209,12 @@ export default {
   background: #fff;
   color: #ad8330;
 }
+
 .form-column form {
   display: flex;
   flex-direction: column;
   gap: 3px; 
 }
-
 
 .error {
   color: #e74c3c;
