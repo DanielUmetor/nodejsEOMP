@@ -172,10 +172,10 @@ div.home{
 .card {
   margin: 20px;
   padding: 20px;
-  border: none;
-  background-color: #fff;
+  border: none !important;
+  background-color: #fff !important;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
   margin-bottom: 80px;
   display: inline-block;
   margin-right: 10px;
@@ -237,7 +237,7 @@ div.home{
   width: 100%;
   position: relative;
   bottom: 140px; 
-  height: 100%;
+  height: 90vh;
   margin-bottom: -140px;
   z-index: 500;
 }
@@ -257,8 +257,9 @@ div.home{
   margin: 20px auto;
   display: block;
   position: relative;
-  bottom: 120px;
+  bottom: 140px;
   left: 10px;
+  padding: 5px;
 }
 .bt1, .bt2 {
  

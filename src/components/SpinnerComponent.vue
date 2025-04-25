@@ -1,7 +1,7 @@
 <template>
     <div class="spinner">
       <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+        <!-- <span class="sr-only">Loading...</span> -->
       </div>
     </div>
   </template>
@@ -12,7 +12,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .spinner {
     position: absolute;
     top: 50%;
@@ -23,7 +23,7 @@
   
   .spinner-border {
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #3498db;
+    border-top: 4px solid #ad8330;
     border-radius: 50%;
     width: 40px;
     height: 40px;
