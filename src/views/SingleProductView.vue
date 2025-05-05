@@ -1,31 +1,33 @@
 <template>
   <div class="single-product">
     <div class="row" style="margin-top: 50px; margin-bottom: 30px;">
-      <div id="image" class="col-md-6">
-        <img v-if="product" :src="product.prodURL" class="img-fluid" alt="Product Image" style="height: 400px;">
-      </div>
-      <div id="det" class="col-md-6">
-        <h2 v-if="product" style="font-size: 36px;">{{ product.prodName }}</h2>
-        <p v-if="product" style="font-size: 24px; color: #ad8330;">Product ID: {{ product.prodID }}</p>
-        <p v-if="product" style="font-size: 24px; color: #ad8330;">Price: {{ product.amount }}</p>
-        <p v-if="product" style="font-size: 24px; color: #ad8330;">Quantity: {{ product.quantity }}</p>
-        <p v-if="product" style="font-size: 24px; color: #ad8330;">Category: {{ product.Category }}</p>
-        <!-- <table v-if="product" class="table table-striped" style="font-size: 24px; color: white;">
-          <tr>
-            <td>Quantity:</td>
-            <td>{{ product.quantity }}</td>
-          </tr>
-          <tr>
-            <td>Category:</td>
-            <td>{{ product.Category }}</td>
-          </tr>
-        </table> -->
-        <button class="btn7" @click="$router.push({ name: 'products' })" style="padding: 10px; font-size: 24px; position: relative;
-  bottom: 40px ;">Back to Products</button>
-      </div>
+      <template v-if="product">
+        <div id="image" class="col-md-6">
+          <img :src="product.prodURL" class="img-fluid" alt="Product Image" style="height: 400px;">
+        </div>
+        <div id="det" class="col-md-6">
+          <h2>{{ product.prodName }}</h2>
+          <p>Product ID: {{ product.prodID }}</p>
+          <p>Price: {{ product.amount }}</p>
+          <p>Quantity: {{ product.quantity }}</p>
+          <p>Category: {{ product.Category }}</p>
+          <button class="btn7" @click="$router.push({ name: 'products' })">
+            Back to Products
+          </button>
+        </div>
+      </template>
+
+      <!-- If no product found -->
+      <template v-else>
+        <div class="col-12 no-product-msg">
+          <h3>No product found.</h3>
+          <p>The product you're looking for doesn't exist or may have been removed.</p>
+        </div>
+      </template>
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -105,6 +107,10 @@ export default {
   /* position: relative;
   bottom: 20px !important; */
   /* padding: 20px; */
+  padding: 9px !important; 
+  font-size: 24px;
+  position: relative;
+  bottom: 40px ;
   background-color: #ad8330 !important;
   color: white;
   border: none;
@@ -125,6 +131,15 @@ export default {
 #det{
   text-align: center;
 }
+
+.no-product-msg {
+  text-align: center;
+  color: #ad8330;
+  font-family: "Cinzel", serif;
+  padding: 50px;
+}
+
+
 @media only screen and (max-width: 300px) {
   .single-product {
     padding: 20px;

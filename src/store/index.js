@@ -41,22 +41,72 @@ export default createStore({
           
         },
         async addProduct({ commit, state }, product) {
-          console.log(product);
-
-          const { data } = await axios.post('https://nodejseomp-9bv2.onrender.com/products/add', product)
-          console.log(data);
-          location.reload();
+          try {
+            // Send POST request to add the product
+            const { data } = await axios.post('https://nodejseomp-9bv2.onrender.com/products/add', product);
+            console.log(data);
+        
+            // Show SweetAlert success message
+            Swal.fire({
+              title: 'Added!',
+              text: 'Product has been added successfully.',
+              icon: 'success',
+              timer: 2000,
+              timerProgressBar: true,
+              showConfirmButton: false,
+              background: '#1c1c1c',
+              color: '#fff'
+            }).then(() => {
+              location.reload();
+            });
+          } catch (error) {
+            console.error('Error adding product:', error);
+            Swal.fire({
+              title: 'Error!',
+              text: 'There was a problem adding the product.',
+              icon: 'error',
+              background: '#1c1c1c',
+              color: '#fff'
+            });
+          }
         },
+        
         async updateProduct({ commit }, product) {
           const { data } = await axios.patch(`https://nodejseomp-9bv2.onrender.com/products/${product.prodID}`, product)
           commit('updateProduct', product)
           location.reload();
         },
         async deleteProduct({ commit, state }, id) {
-          await axios.delete(`https://nodejseomp-9bv2.onrender.com/products/${id}`)
-          commit('setProducts', state.products.filter(product => product._id !== id))
-          location.reload();
+          try {
+            // Make the API call to delete the product
+            await axios.delete(`https://nodejseomp-9bv2.onrender.com/products/${id}`);
+        
+            // Show SweetAlert success message
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'Product has been deleted.',
+              icon: 'success',
+              timer: 2000,
+              timerProgressBar: true,
+              showConfirmButton: false,
+              background: '#1c1c1c',
+              color: '#fff'
+            }).then(() => {
+              location.reload();
+            });
+          } catch (error) {
+            console.error('Error deleting product:', error);
+            Swal.fire({
+              title: 'Error!',
+              text: 'There was a problem deleting the product.',
+              icon: 'error',
+              background: '#1c1c1c',
+              color: '#fff'
+            });
+          }
         }
+        
+        
       }
     },
 
