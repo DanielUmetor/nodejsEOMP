@@ -274,16 +274,72 @@ export default {
 
 @media (max-width: 768px) {
   .slogan {
-    font-size: 30px;
+    font-size: 38px;
   }
 
   .welcome {
-    font-size: 16px;
+    font-size: 36px;
   }
 
-  .card {
-    width: 90%;
-  }
+  .right-column img {
+  width: 200% !important;
+  height: 450px;
+  position: relative;
+  top: -180px;
+}
+
+.bt1{
+  width: 210px !important;
+  height: 60px !important;
+  font-size: 28px;
+  position: relative;
+  left: -10px;
+  bottom: 90px;
+}
+
+.bt1:hover {
+  background-color: #ad8330;
+  color: black;
+}
+
+.best{
+  font-size: 42px;
+}
+
+.bt2{
+  width: 210px !important;
+  height: 60px !important;
+  font-size: 28px;
+  position: relative;
+  bottom: 20px;
+}
+
+#row {
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  left: 50px;
+}
+
+.card {
+  width: 100% !important;
+  max-width: 550px;
+  margin-bottom: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.card-title{
+  font-size: 40px;
+}
+
+.card-text{
+  font-size: 35px !important;
+}
 }
 
 @media (max-width: 480px) {
