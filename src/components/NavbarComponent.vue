@@ -58,6 +58,7 @@
   font-weight: bolder;
   box-shadow: none;
   width: 1500px;
+  z-index: 1000
 }
 .navbar-brand {
     margin-right: 790px; 

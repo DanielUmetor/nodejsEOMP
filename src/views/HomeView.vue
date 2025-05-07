@@ -61,47 +61,167 @@ export default {
   components: { CardComp }
 }
 </script>
+
+
 <style>
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: auto;
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  z-index: 1000; 
-}
 .home {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background:black;
-  /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(175,126,46,1) 0%, rgba(255,255,255,1) 100%); */
+  background: black;
+  position: relative;
+  top: 20px;
+  z-index: 1;  
+}
+
+.left-column, .right-column {
+  flex: 1 1 50%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .left-column {
-  flex-basis: 60%;
-  padding: 20px;
   margin-top: 160px;
   animation: slideInFromLeft 1s forwards;
 }
 
 .right-column {
-  flex-basis: 40%;
-  padding: 20px;
   text-align: center;
   margin-top: 120px;
   animation: slideInFromRight 1s forwards;
 }
 
 .right-column img {
-  width: 100%; 
-  height: 60%; 
-  object-fit: cover;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
   border-radius: 10px;
-  margin-top: 50px;
+  position: relative;
+  bottom: 30px;
 }
+
+.slogan {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 38px;
+  color: #ad8330;
+}
+
+.welcome {
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ad8330;
+  text-align: center;
+}
+
+.bt1 {
+  background-color: black;
+  color: #ad8330;
+  border: solid #ad8330;
+  border-radius: 15px;
+  width: 150px;
+  height: 40px;
+  /* margin-top: 20px; */
+  z-index: 10;
+  position: relative;
+  left: 300px;
+  bottom: 80px;
+  animation: slideInFromLeft 1s forwards, pulse 2s infinite;
+  cursor: pointer;
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  font-family: "Cinzel", serif;
+}
+
+.bt1:hover {
+  background-color: #ad8330;
+  color: black;
+}
+
+.bb {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+  box-sizing: border-box;
+  font-family: "Cinzel", serif;
+}
+
+.best {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+  font-weight: bold;
+  color: black;
+  font-family: "Cinzel", serif;
+  position: relative;
+  bottom: 20px;
+}
+
+#row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.card {
+  width: 280px;
+  border: none;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  font-family: "Cinzel", serif;
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card h5 {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: black;
+  font-family: "Cinzel", serif;
+}
+
+.bt2 {
+  background-color: #ad8330;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
+  width: 150px;
+  height: 40px;
+  margin: 20px auto 0;
+  display: block;
+  animation: pulse 2s infinite;
+  font-family: "Cinzel", serif;
+}
+
+.bt2:hover {
+  color: #ad8330;
+  background-color: white;
+  border: #ad8330 solid 2px;
+}
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -124,225 +244,86 @@ export default {
   }
 }
 
-.slogan{
-  font-family: "Dancing Script", cursive;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 38px;
-  color: #ad8330;
-}
-
-.welcome{
-  font-family: "Cinzel", serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: #ad8330;
-}
-
-.bt1 {
-  background-color: black;
-  color: #ad8330;
-  border: solid #ad8330;
-  border-radius: 15px;
-  width: 150px;
-  height: 40px;
-  margin-top: 20px;
-  z-index: 10;
-  position: relative;
-  animation: slideInFromLeft 1s forwards, pulse 2s infinite;
-  cursor: pointer;
-  bottom: 230px;
-left: 400px;
-}
-
-
-.bt1:hover{
-  background-color:  #ad8330;
-  color: black;
-}
-
-div.home{
-  height: auto;
-}
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-}
-.card {
-  margin: 20px;
-  padding: 20px;
-  border: none;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 80px;
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 30px;
-}
-.card:last-child {
-  margin-right: 0; 
-}
-
-.card img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.card h3 {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.card p {
-  font-size: 14px;
-  color: black;
-}
-
-.best{
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  width: 103%;
-  text-align: center;
-  font-weight: bold;
-  color: black;
-  position: relative;
-  bottom: 60px; 
-}
-
-#home-card{
-  position: relative;
-  right: 350px;
-}
-
-#row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #fff;
-  padding: 20px;
-  position: relative;
-  bottom: 90px;
-}
-.bb {
-  background-color: #fff;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  bottom: 140px; 
-  height: 80vh;
-  margin-bottom: -140px;
-  z-index: 500;
-}
-#pef{
-  display: inline-block;
-  width: 33.33%;
-  margin: 10px;
-}
-
-.bt2 {
-  background-color: #ad8330;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  padding: 5px;
-  width: 150px;
-  height: 40px;
-  margin: 20px auto;
-  display: block;
-  position: relative;
-  bottom: 175px;
-  left: 10px;
-}
-
-.bt2:hover{
-  color: #ad8330;
-  background-color: white;
-  border: #ad8330 solid 2px;
-}
-.bt1, .bt2 {
- 
-  animation: pulse 2s infinite;
-}
-
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
-@media only screen and (max-width: 300px) {
+/* Responsive Styles */
+@media (max-width: 1024px) {
   .home {
     flex-direction: column;
-    background-size: 700px 100%
+    align-items: center;
   }
-  
-  .right-column img {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
-    position: relative;
-    bottom: 150px;
+
+  .left-column, .right-column {
+    flex: 1 1 100%;
+    text-align: center;
   }
-  
+
   .bt1 {
-    order: 3;
-    margin: 10px 0;
-    padding: 10px;
-    position: relative;
-    bottom: 1450px;
-    left: 80px;
+    margin-top: 20px;
+    position: static;
   }
-  .container {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    right: 35px;
-  }
-  .bb {
-    width: 100%;
-    padding: 20px;
-    margin-top: 50px;
-    height: cover;
-    bottom:65px;
-  }
-  .best {
-    width: 130%;
-    padding: 20px;
-    position: relative;
-    top: 50px
-  }
-  #row {
-    flex-direction: column;
-    position: relative;
-    top: 70px;
-  }
-  .card {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-  }
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-  .bt2{
-    position: relative;
-    top: 35px;
+
+  .right-column img {
+    margin-top: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .slogan {
+    font-size: 30px;
+  }
+
+  .welcome {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home{
+    position: relative;
+    top: -40px;
+  }
+  .slogan {
+    font-size: 26px;
+  }
+
+  .welcome {
+    font-size: 20px;
+  }
+
+  .right-column img {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    top: -170px;
+    left: -0px;
+  }
+
+  .bt1, .bt2 {
+    width: 180px;
+    font-size: 24px;
+    height: 50px;
+    font-family: "Cinzel", serif;
+  }
+
+  .bt1{
+    position: relative;
+    bottom: 150px;
+    left: -0px !important;
+  }
+
+  .card img {
+    border-radius: 10px;
+    height: auto;
+  }
+}
+
 </style>

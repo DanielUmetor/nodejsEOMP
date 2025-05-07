@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-4">
               <h5 id="shop">Shop:</h5>
-              <ul>
+              <ul class="shop-container">
   <li id="about"><router-link to="/about">About</router-link></li>
   <li id="product"><router-link to="/products">Products</router-link></li>
   <li id="admin"><router-link to="/admin">Admin</router-link></li>
@@ -58,28 +58,36 @@
   padding: 30px;
   display: flex;
   justify-content: space-between;
+  font-family: "Cinzel", serif;
 }
 
 .row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; 
+  gap: 30px;
 }
 
 .col-md-4 {
   flex: 1;
   margin: 0 10px;
+  font-family: "Cinzel", serif;
 }
 
 .follow-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  left: 40px;
+  top: 10px;
+  font-family: "Cinzel", serif;
 }
 
 .social-media {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  font-family: "Cinzel", serif;
 }
 
 .social-media img {
@@ -90,11 +98,14 @@
 
 #maj, #maj1 {
   margin-left: 10px;
+  font-family: "Cinzel", serif;
 }
 
 .accepted-cards {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  top: 15px;
 }
 
 .accepted-cards img {
@@ -106,6 +117,7 @@
 .foot {
   margin-top: 30px;
   text-align: center;
+  font-family: "Cinzel", serif;
 }
   a {
         text-decoration: none !important;
@@ -124,81 +136,180 @@
   margin: 0;
 }
 
-@media (max-width: 300px) {
-  .footer {
-  background-color: #000000;
-  color: #fffeb6;
-  padding: 30px;
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
+@media (min-width: 767px) {
+  .row {
+    flex-direction: row; 
+    justify-content: space-between;
+  }
+
+  .col-md-4 {
+    width: 30%;
+  }
 }
-  .follow-container {
+
+#follow{
+  font-size: 30px;
+  font-weight: bolder;
+  position: relative;
+  left: -10px;
+}
+
+.follow-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
+  align-items: flex-start;
+  font-size: 20px;
+  position: relative;
+  left: 20px;
 }
-    #follow{
-      margin-left: 50px;
-    }
-    .social-media {
+
+.social-media {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  justify-content: flex-end; 
+  margin-bottom: 15px;
 }
-a:hover {
-      color: #000000;
-      background-color: #ffffff; 
-    }
-    .social-media img {
-      left: 0;
-    }
-    #maj, #maj1 {
-      left: 10px;
-      top: 0;
-    }
-    .accepted-cards {
-      grid-template-columns: repeat(2, 1fr);
-      grid-row-gap: 5px;
-      display: flex;
+
+.social-media img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+#shop{
+  font-size: 30px;
+  font-weight: bolder;
+  position: relative;
+  left: -10px;
+}
+.shop-container{
+  position: relative;
+  top: 10px;
+  left: -13px;
+  font-size: 20px;
+}
+
+#product{
+  position: relative;
+  left: 3px;
+}
+
+#maj, #maj1 {
+  margin: 0;
+}
+
+#acc{
+  font-size: 30px;
+  font-weight: bolder;
+  position: relative;
+  left: -10px;
+}
+
+.accepted-cards {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-    }
-    .accepted-cards img {
-      margin: 10px;
-      width: 30px;
-      height: 30px;
-    }
-    #acc{
-      position: relative;
-      left: 24px;
-    }
-    #shop{
-      margin-left: 65px;
-    }
+  gap: 10px;
+}
 
-   ul {
-    position: relative ;
-    left: 30px;
+.accepted-cards img {
+  width: 40px;
+  height: 40px;
+}
+
+.foot {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+a {
+  text-decoration: none;
+  color: #fffeb6;
+}
+
+a:hover {
+  color: #000;
+  background-color: #fff;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
- #about{
- margin-right: 40px;
- }
- #about{
-  position: relative;
-  left: 30px;
- }
- .foot{
-  position: relative;
-  left: 30px;
- }
- .footer {
-      background-color: #000000;
-      color: #fffeb6;
-      padding: 30px;
-      width: 300px;
+  /* First two columns: Follow Us and Shop side by side */
+  .col-md-4:nth-child(1),
+  .col-md-4:nth-child(2) {
+    flex: 1 1 48%;
   }
+
+  /* Third column: Accepted Cards on its own row */
+  .col-md-4:nth-child(3) {
+    flex: 1 1 100%;
   }
+
+  /* Make accepted cards row images align in a line */
+  .accepted-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #follow{
+    font-size: 42px;
+    font-weight: bolder
+  }
+
+  .follow-container {
+    font-size: 34px;
+    margin-left: 120px;
+  }
+
+  #shop{
+    font-size: 42px;
+    font-weight: bolder;
+    position: relative;
+    top: 20px;
+  }
+
+.shop-container{
+  position: relative;
+  top: 20px;
+  left: -13px;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+#acc{
+  font-size: 42px;
+  font-weight: bolder;
+
+}
+
+.accepted-cards img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .foot {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 50px;
+  }
+}
+
   </style>
