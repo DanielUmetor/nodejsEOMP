@@ -345,7 +345,7 @@ export default {
 @media (max-width: 480px) {
   .home{
     position: relative;
-    top: -40px;
+    top: -20px;
   }
   .slogan {
     font-size: 30px;
@@ -353,6 +353,8 @@ export default {
 
   .welcome {
     font-size: 20px;
+    position: relative;
+    top: 30px;
   }
 
   .right-column img {
