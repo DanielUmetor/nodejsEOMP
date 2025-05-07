@@ -348,7 +348,7 @@ export default {
     top: -40px;
   }
   .slogan {
-    font-size: 26px;
+    font-size: 30px;
   }
 
   .welcome {
@@ -356,7 +356,7 @@ export default {
   }
 
   .right-column img {
-    width: 100%;
+    width: 100% !important;
     height: 450px;
     position: relative;
     top: -170px;
@@ -365,20 +365,39 @@ export default {
 
   .bt1, .bt2 {
     width: 180px;
-    font-size: 24px;
-    height: 50px;
+    font-size: 20px;
+    height: 30px;
     font-family: "Cinzel", serif;
   }
 
   .bt1{
     position: relative;
-    bottom: 150px;
+    bottom: 150px !important;
     left: -0px !important;
   }
 
+  .best{
+    font-size: 35px;
+  }
+
+  #row {
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  left: 0px;
+}
+
+  .card-title{
+  font-size: 25px;
+}
+
+.card-text{
+  font-size: 25px !important;
+}
+
   .card img {
     border-radius: 10px;
-    height: auto;
+    height: auto !important;
   }
 }
 
