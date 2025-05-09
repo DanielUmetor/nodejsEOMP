@@ -123,7 +123,7 @@ export default {
   align-items: center;
   padding-top: 160px;
   color: #ad8330;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Cinzel", serif;
 }
 
 .input-group {
@@ -225,6 +225,10 @@ h4 {
 }
 
 @media only screen and (max-width: 768px) {
+  .products{
+    position: relative;
+    top: 50px;
+  }
   .input-group {
     width: 90%;
   }
@@ -233,4 +237,6 @@ h4 {
     width: 90%;
   }
 }
+
+
 </style>

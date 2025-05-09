@@ -2,6 +2,7 @@
   <div class="contact">
     <div class="columns">
       <div class="icons-column">
+      <p class="us" >CONTACT US</p>
         <div class="icon-item">
           <i class="fas fa-phone-alt"></i>
           <p>+27 72 321 8921</p>
@@ -25,7 +26,7 @@
       </div>
 
       <div class="form-column">
-        <h2>Get in Touch</h2>
+        <h2>GET IN TOUCH</h2>
         <form @submit.prevent="handleSubmit">
           <label for="name">Name</label>
           <input type="text" id="name" v-model="formData.name" placeholder="Type your name…">
@@ -121,6 +122,7 @@ export default {
   min-height: 100vh;
   padding: 100px 0;
   color: #ad8330;
+  font-family: "Cinzel", serif;
 }
 
 .columns {
@@ -132,11 +134,16 @@ export default {
   margin-top: 70px;
 }
 
+.us{
+  font-size: 30px;
+  font-weight: 800;
+}
+
 .icons-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 40px; 
+  gap: 20px; 
 }
 
 .icon-item {
@@ -163,7 +170,8 @@ export default {
 }
 
 .form-column h2 {
-  font-size: 2.5rem;
+  font-size: 30px;
+  font-weight: 800;
   margin-bottom: 30px;
   color: #ad8330;
 }
