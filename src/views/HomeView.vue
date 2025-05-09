@@ -3,10 +3,10 @@
     <div class="left-column">
       <p class="slogan">THE <br>TOUCH OF ROYALTY!</p> <br>
       <p class="welcome"> Welcome to Majestic Scent!!Whether you're a man or woman, our diverse selection of <br>
-fragrances will entice your senses and leave you feeling confident <br>
-and alluring. From timeless classics to modern masterpieces, our <br>
-fragrances are expertly crafted using only the highest quality ingredients. <br>
- Take a journey with us and discover your signature scent today!</p>
+        fragrances will entice your senses and leave you feeling confident <br>
+        and alluring. From timeless classics to modern masterpieces, our <br>
+        fragrances are expertly crafted using only the highest quality ingredients. <br>
+        Take a journey with us and discover your signature scent today!</p>
     </div>
     <div class="right-column">
       <img src="https://nikilitha26.github.io/nodejsImages/2_bottles-removebg-preview.png" alt="Image">
@@ -165,6 +165,8 @@ export default {
 }
 
 #row {
+  position: relative;
+  right: -60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
