@@ -67,6 +67,13 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 30px;
+  flex-wrap: wrap;
+}
+
+.col-md-4 {
+  flex: 1 1 100%;
+  margin: 10px 0;
+  font-family: "Cinzel", serif;
 }
 
 .col-md-4 {
@@ -163,5 +170,137 @@
   margin: 0;
 }
 
+@media (max-width: 1120px) {
+  .row {
+    flex-direction: row !important;
+  }
+
+  .col-md-4 {
+    flex: 1 1 30%;
+    margin: 0 10px;
+  }
+
+  #follow{
+    font-size: 35px;
+    position: relative;
+    left: 30px;
+  }
+
+  .follow-container{
+    font-size: 28px;
+    position: relative;
+    left: 30px;
+  }
+
+  #shop{
+    font-size: 35px;
+  }
+
+  .shop-container{
+    font-size: 28px;
+    
+    margin-left: 110px;
+  }
+
+  #product{
+    position: relative;
+    right: 10px;
+  }
+
+  #acc{
+    font-size: 35px;
+    position: relative;
+    top: 20px;
+  }
+
+  .accepted-cards {
+  justify-content: center;
+  gap: 60px; /* or remove gap entirely */
+}
+
+  .accepted-cards img {
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .follow-container,
+  .shop-container,
+  .accepted-cards {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .foot{
+    font-size: 28px;
+    position: relative;
+    top: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: row;
+  }
+
+  .col-md-4 {
+    flex: 1 1 33.33% !important;
+    margin: 0;
+    text-align: center;
+  }
+  #follow{
+    font-size: 28px;
+    position: relative;
+    left: 0px;
+  }
+
+  .follow-container{
+    font-size: 22px;
+    position: relative;
+    left: 30px;
+  }
+
+  #shop{
+    font-size: 28px;
+    position: relative;
+    bottom: 15px;
+  }
+
+  .shop-container{
+    font-size: 22px;
+    margin-left: 125px;
+    position: relative;
+    top: 0px;
+    flex-wrap: wrap;
+  }
+
+  #product{
+    position: relative;
+    right: 10px;
+  }
+
+  #acc{
+    font-size: 28px;
+    position: relative;
+    top: 20px;
+  }
+
+  .accepted-cards {
+  justify-content: center;
+  gap: 40px; 
+}
+
+  .accepted-cards img {
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .foot{
+    font-size: 22px;
+    position: relative;
+    top: 40px;
+  }
+}
 
   </style>
