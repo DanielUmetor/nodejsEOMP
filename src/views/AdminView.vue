@@ -309,7 +309,7 @@ th{
 }
 
 .btn-primary {
-  background-color: #ad8330 !important; /* gold color */
+  background-color: #ad8330 !important;
   color: black !important;
   font-family: "Cinzel", serif;
   font-size: 16px;
@@ -328,4 +328,11 @@ th{
 .btn:hover {
   opacity: 0.8;
 }
+
+@media only screen and (max-width: 768px) {
+  .admin-page{
+    margin-top: 50px;
+  }
+}
+
 </style>

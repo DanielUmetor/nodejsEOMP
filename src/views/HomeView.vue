@@ -92,7 +92,7 @@ export default {
 }
 
 .right-column img {
-  width: 100%;
+  width: 150%;
   max-width: 450px;
   height: auto;
   object-fit: contain;

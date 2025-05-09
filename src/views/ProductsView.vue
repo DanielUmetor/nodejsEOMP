@@ -228,6 +228,7 @@ h4 {
   .products{
     position: relative;
     top: 50px;
+    margin-bottom: 45px;
   }
   .input-group {
     width: 90%;

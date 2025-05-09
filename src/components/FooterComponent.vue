@@ -153,17 +153,33 @@
   font-family: "Cinzel", serif;
   font-size: 22px;
 }
-  a {
-        text-decoration: none !important;
-        list-style: none !important
-        ;
-        color: #fffeb6; 
-    }
+a {
+  text-decoration: none;
+  color: #fffeb6;
+  position: relative;
+  transition: all 0.3s ease;
+}
 
-    a:hover {
-      color: #000000;
-      background-color: #ffffff; 
-    }
+a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fffeb6;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 30%; /* This makes it a short underline */
+}
+
+a:hover {
+  background-color: transparent;
+}
+
     ul {
   list-style: none;
   padding: 0;
@@ -171,6 +187,10 @@
 }
 
 @media (max-width: 1120px) {
+  .container{
+    margin-top: 40px;
+  }
+  
   .row {
     flex-direction: row !important;
   }
@@ -181,25 +201,25 @@
   }
 
   #follow{
-    font-size: 35px;
+    font-size: 28px;
     position: relative;
     left: 30px;
   }
 
   .follow-container{
-    font-size: 28px;
+    font-size: 20px;
     position: relative;
-    left: 30px;
+    left: 80px;
   }
 
   #shop{
-    font-size: 35px;
+    font-size: 28px;
   }
 
   .shop-container{
-    font-size: 28px;
+    font-size: 20px;
     
-    margin-left: 110px;
+    margin-left: 120px;
   }
 
   #product{
@@ -208,14 +228,14 @@
   }
 
   #acc{
-    font-size: 35px;
+    font-size: 28px;
     position: relative;
     top: 20px;
   }
 
   .accepted-cards {
   justify-content: center;
-  gap: 60px; /* or remove gap entirely */
+  gap: 60px; 
 }
 
   .accepted-cards img {
@@ -232,13 +252,16 @@
   }
 
   .foot{
-    font-size: 28px;
+    font-size: 22px;
     position: relative;
     top: 40px;
   }
 }
 
 @media (max-width: 600px) {
+  .container{
+    margin-top: 40px;
+  }
   .row {
     flex-direction: row;
   }
@@ -249,25 +272,25 @@
     text-align: center;
   }
   #follow{
-    font-size: 28px;
+    font-size: 24px;
     position: relative;
     left: 0px;
   }
 
   .follow-container{
-    font-size: 22px;
+    font-size: 18px;
     position: relative;
-    left: 30px;
+    left: 60px;
   }
 
   #shop{
-    font-size: 28px;
+    font-size: 24px;
     position: relative;
     bottom: 15px;
   }
 
   .shop-container{
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 125px;
     position: relative;
     top: 0px;
@@ -280,7 +303,7 @@
   }
 
   #acc{
-    font-size: 28px;
+    font-size: 24px;
     position: relative;
     top: 20px;
   }
@@ -297,7 +320,7 @@
   }
 
   .foot{
-    font-size: 22px;
+    font-size: 20px;
     position: relative;
     top: 40px;
   }
