@@ -230,7 +230,7 @@ export default {
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 1120px) {
   .columns {
     flex-direction: column;
     align-items: center;
