@@ -121,7 +121,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 160px;
+  padding-top: 180px;
   color: #ad8330;
   font-family: "Cinzel", serif;
 }

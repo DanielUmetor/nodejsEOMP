@@ -225,7 +225,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 140px;
+  padding-top: 160px;
   color: white;
 }
 
