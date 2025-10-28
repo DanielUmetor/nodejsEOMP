@@ -27,8 +27,8 @@
       <h2 class="our-team-title">OUR TEAM</h2>
 
       <div class="our-team">
-        <div class="team-member">
-          <img src="https://nikilitha26.github.io/Boot-img/Image/IMG_8063.PNG" alt="Team Member 1">
+        <div id="teeam" class="team-member">
+          <img src="https://nikilitha26.github.io/vue.jsImages/IMG_1283%20(1).jpg" alt="Team Member 1">
           <div class="team-info">
             <h3 class="h3">Nikilitha Kakaza</h3>
             <p class="founder">Founder & CEO</p>
@@ -210,6 +210,7 @@
   border-radius: 50%;
   margin-right: 20px;
 }
+
 
 .team-info {
   flex: 1;
