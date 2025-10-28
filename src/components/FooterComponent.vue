@@ -4,7 +4,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <h5 id="follow">Follow us:</h5>
+              <h5 id="follow">FOLLOW US:</h5>
               <div class="follow-container">
               <div class="social-media">
                 <img id="mg1" src="https://nikilitha26.github.io/nodejsImages/facebook-icon-instagram-icon-instagram-2016-icon-instagram-logo-icon-new-icon-brass-circle-wood-beige-metal-png-clipart-thumbnail-removebg-preview.png" alt="icon" class="img-fluid border-5 rounded-circle custom-image">
@@ -17,7 +17,7 @@
             </div>
             </div>
             <div class="col-md-4">
-              <h5 id="shop">Shop:</h5>
+              <h5 id="shop">SHOP:</h5>
               <ul class="shop-container">
   <li id="about"><router-link to="/about">About</router-link></li>
   <li id="product"><router-link to="/products">Products</router-link></li>
@@ -26,7 +26,7 @@
 </ul>
             </div>
             <div class="col-md-4">
-            <h5 id="acc">Accepted card payments:</h5>
+            <h5 id="acc">ACCEPTED CARD PAYMENTS:</h5>
             <div class="accepted-cards">
               <img id="visa" src="https://nikilitha26.github.io/nodejsImages/imgbin-visa-credit-card-debit-card-visa-CVupnbKnhhXkYdQ3EY1sZ3ErQ-removebg-preview.png" alt="visa" class="img-fluid">
               <img id="mastercard" src="https://nikilitha26.github.io/nodejsImages/png-transparent-card-master-master-card-master-card-new-logo-method-new-logo-payment-logos-icon-thumbnail-removebg-preview.png" alt="mastercard" class="img-fluid">
@@ -83,7 +83,7 @@
 }
 
 #follow{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -95,7 +95,7 @@
   margin-left: -20px;
   top: 20px;
   font-family: "Cinzel", serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .social-media {
@@ -117,18 +117,19 @@
 }
 
 #shop{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 800;
 }
 
 .shop-container{
-  font-size: 22px;
+  font-family: "Cinzel", serif;
+  font-size: 18px;
   position: relative;
   top: 20px;
 }
 
 #acc{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -143,7 +144,7 @@
   position: relative;
   top: 20px;
   width: 40px;
-  height: 40px;
+  height: 30px;
   margin: 0 10px;
 }
 
@@ -151,7 +152,7 @@
   margin-top: 30px;
   text-align: center;
   font-family: "Cinzel", serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 a {
   text-decoration: none;
